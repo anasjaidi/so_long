@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../so_long.h"
 
 void	send_line(char *buffer, char **buffer_reminder, int l, char	**rtn)
 {

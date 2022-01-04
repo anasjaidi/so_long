@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../so_long.h"
 
 char	*ft_strdup(const char *s1)
 {

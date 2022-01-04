@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 01:51:14 by ajaidi            #+#    #+#             */
-/*   Updated: 2021/11/22 01:51:17 by ajaidi           ###   ########.fr       */
+/*   Created: 2022/01/04 13:32:36 by ajaidi            #+#    #+#             */
+/*   Updated: 2022/01/04 13:32:38 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# define BUFFER_SIZE 100000
+# define EMPTY_FILE "Error the map is empty\n"
+# define NOT_RECTANGULAR "Error the map is not rectangular\n"
+# define not_one "Error the map is not surrounded by wall\n"
+
+typedef struct s_map
+{
+    int w;
+    int c;
+    int e;
+    int x;
+    int h;
+} t_map;
+
 
 char	*ft_strdup(const char *s1);
 int		ft_strchr(char *s, char c);
