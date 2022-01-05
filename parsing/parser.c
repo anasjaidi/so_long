@@ -15,6 +15,8 @@
 char	*read_line(char *path, t_map *map)
 {
 	char	*line;
+	t_list	*p;
+	t_list *root = NULL;
 	int		fd;
 	int		error;
 
@@ -24,8 +26,16 @@ char	*read_line(char *path, t_map *map)
 		print_error(1);
 	while (line)
 	{
-		error = check_line(line, map);
+		error = check_line(line, map, &root);
 		if (error)
-			check_error(line , error);
+			exit(0);
+		line = get_next_line(fd);
 	}
+	p = root;
+	while (p)
+	{
+		printf("%s",p->content);
+		p = p->next;
+	}
+	return (NULL);
 }

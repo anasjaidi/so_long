@@ -18,9 +18,15 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # define BUFFER_SIZE 100000
-# define EMPTY_FILE "Error the map is empty\n"
-# define NOT_RECTANGULAR "Error the map is not rectangular\n"
-# define not_one "Error the map is not surrounded by wall\n"
+# define EMPTY_FILE "Error the map is empty\n" 
+# define NOT_RECTANGULAR "Error the map is not rectangular\n" 
+# define NOT_ONE "Error the map is not surrounded by wall\n" 
+# define MORE_COMP "ther is more tha 01EXP in map\n"
+
+typedef struct s_list {
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 typedef struct s_map
 {
@@ -29,10 +35,19 @@ typedef struct s_map
     int e;
     int x;
     int h;
-    int l;
 } t_map;
 
-
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstclear(t_list **lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+char	*read_line(char *path, t_map *map);
+int     check_wall(char *line, t_map *map);
+int	    check_child(char c, t_map *map);
+int	    check_comp(char *line, t_map *map);
+int	    check_char(char *line, t_map *map);
+int	    check_line(char *line, t_map *map, t_list **root);
+int 	print_error(int n);
 char	*ft_strdup(const char *s1);
 int		ft_strchr(char *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
