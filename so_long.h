@@ -29,6 +29,7 @@ typedef struct s_map
     int e;
     int x;
     int h;
+    int l;
 } t_map;
 
 
