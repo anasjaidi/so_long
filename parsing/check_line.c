@@ -16,8 +16,8 @@ int	check_child(char c, t_map *map)
 {
 	if (c == 'C')
 		map->c += 1;
-	else if (c == 'X')
-		map->x += 1;
+	else if (c == 'P')
+		map->p += 1;
 	else if (c == 'E')
 		map->e += 1;
 	else if (c == '0' || c == '1' || c == '\n')

@@ -21,7 +21,7 @@
 # define EMPTY_FILE "Error the map is empty" 
 # define NOT_RECTANGULAR "Error the map is not rectangular" 
 # define NOT_ONE "Error the map is not surrounded by wall" 
-# define MORE_COMP "ther is more tha 01EXP in map"
+# define MORE_COMP "ther is more tha 01ECP in map"
 # define MISSING "something missing in map"
 
 typedef struct s_list {
@@ -34,7 +34,7 @@ typedef struct s_map
     int w;
     int c;
     int e;
-    int x;
+    int p;
     int h;
 } t_map;
 int	    check_one(char *line1, char *line2);
