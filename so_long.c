@@ -12,22 +12,20 @@
 
 #include "so_long.h"
 
-void reset_map(t_map *map)
+void	reset_map(t_map *map)
 {
-    map->c = 0;
-    map->e = 0;
-    map->h = 0;
-    map->w = 0;
-    map->p = 0;
+	map->c = 0;
+	map->e = 0;
+	map->h = 0;
+	map->w = 0;
+	map->p = 0;
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    t_map map;
-   
-   reset_map(&map);
-    if (ac == 2)
-    {
-        read_line(av[1], &map);
-    }
+	t_map	map;
+
+	reset_map(&map);
+	if (ac == 2)
+		read_line(av[1], &map);
 }

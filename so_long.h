@@ -31,24 +31,25 @@ typedef struct s_list {
 
 typedef struct s_map
 {
-    int w;
-    int c;
-    int e;
-    int p;
-    int h;
-} t_map;
-int	    check_one(char *line1, char *line2);
+	int	w;
+	int	c;
+	int	e;
+	int	p;
+	int	h;
+}	t_map;
+
+int		check_one(char *line1, char *line2);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstclear(t_list **lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 char	*read_line(char *path, t_map *map);
-int     check_wall(char *line, t_map *map);
-int	    check_child(char c, t_map *map);
-int	    check_comp(char *line, t_map *map);
-int	    check_char(char *line, t_map *map);
-int	    check_line(char *line, t_map *map, t_list **root);
-int 	print_error(int n);
+int		check_wall(char *line, t_map *map);
+int		check_child(char c, t_map *map);
+int		check_comp(char *line, t_map *map);
+int		check_char(char *line, t_map *map);
+int		check_line(char *line, t_map *map, t_list **root);
+int		print_error(int n);
 char	*ft_strdup(const char *s1);
 int		ft_strchr(char *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

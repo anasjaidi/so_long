@@ -14,16 +14,16 @@
 
 int	check_one(char *line1, char *line2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line1[i + 1] && line2[i + 1])
 	{
 		if (line1[i] != '1' || line2[i] != '1')
 			return (print_error(3));
-		i++;	
+		i++;
 	}
-	return 0;
+	return (0);
 }
 
 int	check_map(t_map *map, t_list **root)
@@ -36,13 +36,13 @@ int	check_map(t_map *map, t_list **root)
 char	*read_line(char *path, t_map *map)
 {
 	char	*line;
-	t_list	*p;
-	t_list *root = NULL;
+	t_list	*root;
 	int		fd;
 	int		error;
 
 	fd = open(path, O_RDWR);
 	line = get_next_line(fd);
+	root = NULL;
 	if (!line)
 		print_error(1);
 	while (line)

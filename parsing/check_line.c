@@ -29,8 +29,8 @@ int	check_child(char c, t_map *map)
 
 int	check_comp(char *line, t_map *map)
 {
-	int 	i;
-	int 	l;
+	int	i;
+	int	l;
 
 	l = ft_strlen(line);
 	if (line[0] != '1' || line[l - 2] != '1')
@@ -44,7 +44,7 @@ int	check_comp(char *line, t_map *map)
 	if (!map->h)
 		map->w = i;
 	if (i != map->w)
-		return(2);
+		return (2);
 	map->h += 1;
 	return (0);
 }
@@ -57,10 +57,10 @@ int	check_char(char *line, t_map *map)
 	return (error);
 }
 
-
 int	check_line(char *line, t_map *map, t_list **root)
 {
 	int	error;
+
 	error = check_char(line, map);
 	if (error)
 	{
@@ -69,7 +69,7 @@ int	check_line(char *line, t_map *map, t_list **root)
 	}
 	else
 		ft_lstadd_back(root, ft_lstnew(line));
-	return 0;
+	return (0);
 }
 
 int	print_error(int n)
