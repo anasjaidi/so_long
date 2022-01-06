@@ -33,31 +33,25 @@ int	check_map(t_map *map, t_list **root)
 	return (check_one((*root)->content, ft_lstlast(*root)->content));
 }
 
-char	*read_line(char *path, t_map *map)
+char	*read_line(char *path, t_map *map, t_list **root)
 {
 	char	*line;
-	t_list	*root;
 	int		fd;
 	int		error;
 
 	fd = open(path, O_RDWR);
 	line = get_next_line(fd);
-	root = NULL;
+	*root = NULL;
 	if (!line)
 		print_error(1);
 	while (line)
 	{
-		error = check_line(line, map, &root);
+		error = check_line(line, map, root);
 		if (error)
 			exit(0);
 		line = get_next_line(fd);
 	}
-	if (check_map(map, &root))
+	if (check_map(map, root))
 		exit(0);
-	while (root)
-	{
-		printf("%s", (char *)root->content);
-		root = root->next;
-	}
 	return (NULL);
 }

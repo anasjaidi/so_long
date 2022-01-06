@@ -39,11 +39,13 @@ typedef struct s_map
 }	t_map;
 
 int		check_one(char *line1, char *line2);
+void	reset_map(t_map *map);
+int		render(t_map *map, t_list **root);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstclear(t_list **lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-char	*read_line(char *path, t_map *map);
+char	*read_line(char *path, t_map *map, t_list **root);
 int		check_wall(char *line, t_map *map);
 int		check_child(char c, t_map *map);
 int		check_comp(char *line, t_map *map);

@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 18:09:55 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/05 18:09:56 by ajaidi           ###   ########.fr       */
+/*   Created: 2022/01/06 12:00:15 by ajaidi            #+#    #+#             */
+/*   Updated: 2022/01/06 12:00:44 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int ac, char **av)
+int	render(t_map *map, t_list **root)
 {
-	t_map	map;
-	t_list	*root;
-
-	reset_map(&map);
-	if (ac == 2)
-	{
-		read_line(av[1], &map, &root);
-		render(&map, &root);
-	}
+	return (0);
 }
