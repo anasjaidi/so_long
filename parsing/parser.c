@@ -12,6 +12,25 @@
 
 #include "../so_long.h"
 
+int	check_one(char *line1, char *line2)
+{
+	int i;
+
+	i = -1;
+	while (line1[++i] && line2[i])
+		if (line1[i] != '1' || line2[i] != '1')
+			return (print_error(3));
+	return 0;
+}
+
+int	check_map(t_map *map, t_list **root)
+{
+	if (!map->c || !map->e || !map->x)
+		print_error(5);
+	return (check_one((*root)->content, ft_lstlast(*root)->content));
+
+}
+
 char	*read_line(char *path, t_map *map)
 {
 	char	*line;
@@ -31,11 +50,13 @@ char	*read_line(char *path, t_map *map)
 			exit(0);
 		line = get_next_line(fd);
 	}
-	p = root;
-	while (p)
+	while (root)
 	{
-		printf("%s",p->content);
-		p = p->next;
+		printf("%s", (char *)root->content);
+		root = root->next;
 	}
+	
+	if (check_map(map, &root))
+		exit(0);
 	return (NULL);
 }

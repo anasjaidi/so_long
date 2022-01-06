@@ -18,10 +18,11 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # define BUFFER_SIZE 100000
-# define EMPTY_FILE "Error the map is empty\n" 
-# define NOT_RECTANGULAR "Error the map is not rectangular\n" 
-# define NOT_ONE "Error the map is not surrounded by wall\n" 
-# define MORE_COMP "ther is more tha 01EXP in map\n"
+# define EMPTY_FILE "Error the map is empty" 
+# define NOT_RECTANGULAR "Error the map is not rectangular" 
+# define NOT_ONE "Error the map is not surrounded by wall" 
+# define MORE_COMP "ther is more tha 01EXP in map"
+# define MISSING "something missing in map"
 
 typedef struct s_list {
 	void			*content;
@@ -36,7 +37,7 @@ typedef struct s_map
     int x;
     int h;
 } t_map;
-
+int	    check_one(char *line1, char *line2);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstclear(t_list **lst);

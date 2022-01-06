@@ -82,5 +82,7 @@ int	print_error(int n)
 		printf("%s\n", NOT_ONE);
 	if (n == 4)
 		printf("%s\n", MORE_COMP);
+	if (n == 5)
+		printf("%s\n", MISSING);
 	return (n);
 }
