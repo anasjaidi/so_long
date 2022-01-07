@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include <unistd.h>
+# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -36,6 +37,8 @@ typedef struct s_map
 	int	e;
 	int	p;
 	int	h;
+	int	x;
+	int	y;
 }	t_map;
 
 int		check_one(char *line1, char *line2);
