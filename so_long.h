@@ -34,6 +34,7 @@ typedef struct s_mlx {
 } t_mlx;
 
 typedef struct s_list {
+	struct s_list	*prev;
 	void			*content;
 	struct s_list	*next;
 }	t_list;
@@ -49,19 +50,26 @@ typedef struct s_map
 	int	y;
 }	t_map;
 
+typedef struct s_all {
+	t_map	*map;
+	t_mlx	*mlx;
+	t_list	*root;
+} t_all;
+
 int		check_one(char *line1, char *line2);
+int move(t_all *all);
 void	reset_map(t_map *map);
-int		render(t_map *map, t_list **root);
+int		render(t_all *all);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstclear(t_list **lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-char	*read_line(char *path, t_map *map, t_list **root);
+char	*read_line(char *path, t_all *all);
 int		check_wall(char *line, t_map *map);
-int		check_child(char c, t_map *map);
-int		check_comp(char *line, t_map *map);
-int		check_char(char *line, t_map *map);
-int		check_line(char *line, t_map *map, t_list **root);
+int		check_child(char c, t_all *all);
+int		check_comp(char *line, t_all *all);
+int		check_char(char *line, t_all *all);
+int		check_line(char *line, t_all *all);
 int		print_error(int n);
 char	*ft_strdup(const char *s1);
 int		ft_strchr(char *s, char c);

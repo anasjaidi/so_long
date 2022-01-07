@@ -12,14 +12,14 @@
 
 #include "../so_long.h"
 
-int	check_child(char c, t_map *map)
+int	check_child(char c, t_all *all)
 {
 	if (c == 'C')
-		map->c += 1;
+		all->map->c += 1;
 	else if (c == 'P')
-		map->p += 1;
+		all->map->p += 1;
 	else if (c == 'E')
-		map->e += 1;
+		all->map->e += 1;
 	else if (c == '0' || c == '1' || c == '\n')
 		return (0);
 	else
@@ -27,7 +27,7 @@ int	check_child(char c, t_map *map)
 	return (0);
 }
 
-int	check_comp(char *line, t_map *map)
+int	check_comp(char *line, t_all *all)
 {
 	int	i;
 	int	l;
@@ -38,37 +38,37 @@ int	check_comp(char *line, t_map *map)
 	i = -1;
 	while (line[++i])
 	{
-		if (check_child(line[i], map))
+		if (check_child(line[i], all))
 			return (4);
 	}
-	if (!map->h)
-		map->w = i;
-	if (i != map->w)
+	if (!all->map->h)
+		all->map->w = i;
+	if (i != all->map->w)
 		return (2);
-	map->h += 1;
+	all->map->h += 1;
 	return (0);
 }
 
-int	check_char(char *line, t_map *map)
+int	check_char(char *line, t_all *all)
 {
 	int	error;
 
-	error = check_comp(line, map);
+	error = check_comp(line, all);
 	return (error);
 }
 
-int	check_line(char *line, t_map *map, t_list **root)
+int	check_line(char *line, t_all *all)
 {
 	int	error;
 
-	error = check_char(line, map);
+	error = check_char(line, all);
 	if (error)
 	{
-		ft_lstclear(root);
+		ft_lstclear(&all->root);
 		return (print_error(error));
 	}
 	else
-		ft_lstadd_back(root, ft_lstnew(line));
+		ft_lstadd_back(&all->root, ft_lstnew(line));
 	return (0);
 }
 
