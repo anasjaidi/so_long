@@ -25,6 +25,14 @@
 # define MORE_COMP "ther is more tha 01ECP in map"
 # define MISSING "something missing in map"
 
+typedef struct s_mlx {
+	void	*mlx;
+	void	*win;
+	void	*img;
+	int		px;
+	int		py;
+} t_mlx;
+
 typedef struct s_list {
 	void			*content;
 	struct s_list	*next;
