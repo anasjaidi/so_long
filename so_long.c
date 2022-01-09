@@ -25,5 +25,6 @@ int	main(int ac, char **av)
 	{
 		read_line(av[1], &all);
 		render(&all);
+	
 	}
 }

@@ -17,7 +17,9 @@ int	check_child(char c, t_all *all)
 	if (c == 'C')
 		all->map->c += 1;
 	else if (c == 'P')
+	{
 		all->map->p += 1;
+	}
 	else if (c == 'E')
 		all->map->e += 1;
 	else if (c == '0' || c == '1' || c == '\n')

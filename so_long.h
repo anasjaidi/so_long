@@ -56,6 +56,7 @@ typedef struct s_all {
 	t_list	*root;
 } t_all;
 
+int key_hook(int key, t_all *all);
 int		check_one(char *line1, char *line2);
 int move(t_all *all);
 void	reset_map(t_map *map);
