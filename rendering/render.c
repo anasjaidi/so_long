@@ -54,6 +54,8 @@ void	put_map(t_all *all)
 	int 	j;
 
 	ptr = all->root;
+	all->map->y = 0;
+	all->map->x = 0;
 	j = 1;
 	while (ptr)
 	{
@@ -61,7 +63,6 @@ void	put_map(t_all *all)
 		line = ptr->content;
 		while (line[++i + 1])
 			check_xpm(line[i], all, i , j);
-		printf("%s", line);
 		all->map->y += 40;
 		all->map->x = 0;
 		ptr = ptr->next;

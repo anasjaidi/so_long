@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include <unistd.h>
-# include <mlx.h>
+#include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -57,6 +57,7 @@ typedef struct s_all {
 } t_all;
 
 int key_hook(int key, t_all *all);
+void	put_map(t_all *all);
 int		check_one(char *line1, char *line2);
 int move(t_all *all);
 void	reset_map(t_map *map);
