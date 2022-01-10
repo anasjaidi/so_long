@@ -29,21 +29,26 @@ void    check_x(t_all *all, int key)
             line[all->mlx->px - 2] = 'P';
             line[all->mlx->px - 1] = '0';
             put_map(all);
+            printf("instruct %d\n",all->map->in++);
         }
-        if (line[all->mlx->px - 2] == 'C')
+        else if (line[all->mlx->px - 2] == 'C')
         {
             line[all->mlx->px - 2] = 'P';
             line[all->mlx->px - 1] = '0';
             all->map->c -= 1;
             put_map(all);
+            printf("instruct %d\n",all->map->in++);
         }
-        if (line[all->mlx->px - 2] == 'E' && !all->map->c)
+        else if (line[all->mlx->px - 2] == 'E' && !all->map->c)
         {
             printf("%d\n",all->map->c);
             line[all->mlx->px - 2] = 'P';
             line[all->mlx->px - 1] = '0';
             mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+            printf("you win\n");
+            ft_lstclear(&all->root);
             exit(0);
+
         }
     }
     if (key == 2)
@@ -54,19 +59,24 @@ void    check_x(t_all *all, int key)
             line[all->mlx->px - 1] = '0';
             //all->mlx->px -= 1;
             put_map(all);
+            printf("instruct %d\n",all->map->in++);
+
         }
-        if (line[all->mlx->px] == 'C')
+        else if (line[all->mlx->px] == 'C')
         {
             line[all->mlx->px] = 'P';
             line[all->mlx->px - 1] = '0';
             all->map->c -= 1;
             put_map(all);
+            printf("instruct %d\n",all->map->in++);
         }
-        if (line[all->mlx->px] == 'E' && !all->map->c)
+        else if (line[all->mlx->px] == 'E' && !all->map->c)
         {
             line[all->mlx->px] = 'P';
             line[all->mlx->px - 1] = '0';
             mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+            printf("you win\n");
+            ft_lstclear(&all->root);
             exit(0);
         }
     }
@@ -90,21 +100,26 @@ void    check_y(t_all *all, int key)
             line[all->mlx->px - 1] = '0';
             //all->mlx->px -= 1;
             put_map(all);
+            printf("instruct %d\n",all->map->in++);
+
         }
-        if (line[all->mlx->px - 1 ] == 'C')
+        else if (line[all->mlx->px - 1 ] == 'C')
         {
             line[all->mlx->px - 1] = 'P';
             line = ptr->content;
             line[all->mlx->px - 1] = '0';
             all->map->c -= 1;
             put_map(all);
+            printf("instruct %d\n",all->map->in++);
         }
-        if (line[all->mlx->px - 1] == 'E' && !all->map->c)
+        else if (line[all->mlx->px - 1] == 'E' && !all->map->c)
         {
             line[all->mlx->px - 1] = 'P';
             line = ptr->content;
             line[all->mlx->px - 1] = '0';
             mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+            printf("you win\n");
+            ft_lstclear(&all->root);
             exit(0);
         }
     }
@@ -118,21 +133,27 @@ void    check_y(t_all *all, int key)
             line[all->mlx->px - 1] = '0';
             //all->mlx->px -= 1;
             put_map(all);
+            printf("instruct %d\n",all->map->in++);
+
         }
-        if (line[all->mlx->px - 1] == 'C')
+        else if (line[all->mlx->px - 1] == 'C')
         {
             line[all->mlx->px - 1] = 'P';
             line = ptr->content;
             line[all->mlx->px - 1] = '0';
             all->map->c -= 1;
             put_map(all);
+            printf("instruct %d\n",all->map->in++);
+
         }
-        if (line[all->mlx->px - 1] == 'E' && !all->map->c)
+        else if (line[all->mlx->px - 1] == 'E' && !all->map->c)
         {
             line[all->mlx->px - 1] = 'P';
             line = ptr->content;
             line[all->mlx->px - 1] = '0';
             mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+            printf("you win\n");
+            ft_lstclear(&all->root);
             exit(0);
         }
     }
@@ -148,5 +169,11 @@ int key_hook(int key, t_all *all)
         check_x(all, key);
     if (key == 13)
         check_y(all, key);
+    if (key == 53)
+    {
+        ft_lstclear(&all->root);
+        mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+        exit(0);
+    }
     return (0);
 }

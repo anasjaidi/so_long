@@ -12,25 +12,47 @@
 
 #include "../so_long.h"
 
-int	check_one(char *line1, char *line2)
+int	check_one1(char *line1)
 {
 	int	i;
 
 	i = 0;
-	while (line1[i + 1] && line2[i + 1])
+	while (line1[i + 1])
 	{
-		if (line1[i] != '1' || line2[i] != '1')
+		if (line1[i] != '1')
 			return (print_error(3));
 		i++;
 	}
+	printf("line = %s\n",line1);
+	return (0);
+}
+int	check_one2(char *line1)
+{
+	int	i;
+
+	i = 0;
+	printf("line = ");
+	while (line1[i])
+	{
+		if (line1[i] != '1')
+			return (print_error(3));
+			printf("%c",line1[i]);
+		i++;
+	}
+	printf("line = %s\n",line1);
 	return (0);
 }
 
 int	check_map(t_map *map, t_list **root)
 {
+	int x , y;
 	if (!map->c || !map->e || !map->p)
 		return (print_error(5));
-	return (check_one((*root)->content, ft_lstlast(*root)->content));
+	x = check_one1((*root)->content);
+	y = check_one2(ft_lstlast(*root)->content);
+	if (x || y)
+		return 3;
+	return 0;
 }
 
 char	*read_line(char *path, t_all *all)

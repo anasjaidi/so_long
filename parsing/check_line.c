@@ -45,8 +45,6 @@ int	check_comp(char *line, t_all *all)
 	}
 	if (!all->map->h)
 		all->map->w = i;
-	if (i != all->map->w)
-		return (2);
 	all->map->h += 1;
 	return (0);
 }

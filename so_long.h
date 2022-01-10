@@ -13,8 +13,8 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <unistd.h>
 #include <mlx.h>
+# include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -41,6 +41,7 @@ typedef struct s_list {
 
 typedef struct s_map
 {
+	int in;
 	int	w;
 	int	c;
 	int	e;

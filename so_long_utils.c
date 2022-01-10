@@ -21,4 +21,5 @@ void	reset_map(t_map *map)
 	map->p = 0;
 	map->x = 0;
 	map->y = 0;
+	map->in = 0;
 }
