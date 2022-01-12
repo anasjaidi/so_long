@@ -6,7 +6,7 @@
 /*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:56:18 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/03 13:56:23 by ajaidi           ###   ########.fr       */
+/*   Updated: 2022/01/11 11:58:35 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,35 @@ int	check_one1(char *line1)
 			return (print_error(3));
 		i++;
 	}
-	printf("line = %s\n",line1);
 	return (0);
 }
+
 int	check_one2(char *line1)
 {
 	int	i;
 
 	i = 0;
-	printf("line = ");
 	while (line1[i])
 	{
 		if (line1[i] != '1')
 			return (print_error(3));
-			printf("%c",line1[i]);
 		i++;
 	}
-	printf("line = %s\n",line1);
 	return (0);
 }
 
 int	check_map(t_map *map, t_list **root)
 {
-	int x , y;
+	int	y;
+	int	x;
+
 	if (!map->c || !map->e || !map->p)
 		return (print_error(5));
 	x = check_one1((*root)->content);
 	y = check_one2(ft_lstlast(*root)->content);
 	if (x || y)
-		return 3;
-	return 0;
+		return (3);
+	return (0);
 }
 
 char	*read_line(char *path, t_all *all)

@@ -12,168 +12,131 @@
 
 #include "../so_long.h"
 
-void    check_x(t_all *all, int key)
+void	key_0(t_all *all, char *line)
 {
-    char    *line;
-    t_list  *ptr;
-    int i = -1;
-
-    ptr = all->root;
-    while(ptr && ++i < all->mlx->py - 1)
-        ptr = ptr->next;
-    line = ptr->content;
-    if (key == 0)
-    {
-        if (line[all->mlx->px - 2] == '0')
-        {
-            line[all->mlx->px - 2] = 'P';
-            line[all->mlx->px - 1] = '0';
-            put_map(all);
-            printf("instruct %d\n",all->map->in++);
-        }
-        else if (line[all->mlx->px - 2] == 'C')
-        {
-            line[all->mlx->px - 2] = 'P';
-            line[all->mlx->px - 1] = '0';
-            all->map->c -= 1;
-            put_map(all);
-            printf("instruct %d\n",all->map->in++);
-        }
-        else if (line[all->mlx->px - 2] == 'E' && !all->map->c)
-        {
-            printf("%d\n",all->map->c);
-            line[all->mlx->px - 2] = 'P';
-            line[all->mlx->px - 1] = '0';
-            mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-            printf("you win\n");
-            ft_lstclear(&all->root);
-            exit(0);
-
-        }
-    }
-    if (key == 2)
-    {
-        if (line[all->mlx->px] == '0')
-        {
-            line[all->mlx->px] = 'P';
-            line[all->mlx->px - 1] = '0';
-            //all->mlx->px -= 1;
-            put_map(all);
-            printf("instruct %d\n",all->map->in++);
-
-        }
-        else if (line[all->mlx->px] == 'C')
-        {
-            line[all->mlx->px] = 'P';
-            line[all->mlx->px - 1] = '0';
-            all->map->c -= 1;
-            put_map(all);
-            printf("instruct %d\n",all->map->in++);
-        }
-        else if (line[all->mlx->px] == 'E' && !all->map->c)
-        {
-            line[all->mlx->px] = 'P';
-            line[all->mlx->px - 1] = '0';
-            mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-            printf("you win\n");
-            ft_lstclear(&all->root);
-            exit(0);
-        }
-    }
-}
-void    check_y(t_all *all, int key)
-{
-    char    *line;
-    t_list  *ptr;
-    int i = -1;
-
-    ptr = all->root;
-    while(ptr && ++i < all->mlx->py - 1)
-        ptr = ptr->next;
-    if (key == 13)
-    {
-        line = ptr->prev->content;
-        if (line[all->mlx->px -1 ] == '0')
-        {
-            line[all->mlx->px - 1] = 'P';
-            line = ptr->content;
-            line[all->mlx->px - 1] = '0';
-            //all->mlx->px -= 1;
-            put_map(all);
-            printf("instruct %d\n",all->map->in++);
-
-        }
-        else if (line[all->mlx->px - 1 ] == 'C')
-        {
-            line[all->mlx->px - 1] = 'P';
-            line = ptr->content;
-            line[all->mlx->px - 1] = '0';
-            all->map->c -= 1;
-            put_map(all);
-            printf("instruct %d\n",all->map->in++);
-        }
-        else if (line[all->mlx->px - 1] == 'E' && !all->map->c)
-        {
-            line[all->mlx->px - 1] = 'P';
-            line = ptr->content;
-            line[all->mlx->px - 1] = '0';
-            mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-            printf("you win\n");
-            ft_lstclear(&all->root);
-            exit(0);
-        }
-    }
-    if (key == 1)
-    {
-        line = ptr->next->content;
-        if (line[all->mlx->px - 1] == '0')
-        {
-            line[all->mlx->px - 1] = 'P';
-            line = ptr->content;
-            line[all->mlx->px - 1] = '0';
-            //all->mlx->px -= 1;
-            put_map(all);
-            printf("instruct %d\n",all->map->in++);
-
-        }
-        else if (line[all->mlx->px - 1] == 'C')
-        {
-            line[all->mlx->px - 1] = 'P';
-            line = ptr->content;
-            line[all->mlx->px - 1] = '0';
-            all->map->c -= 1;
-            put_map(all);
-            printf("instruct %d\n",all->map->in++);
-
-        }
-        else if (line[all->mlx->px - 1] == 'E' && !all->map->c)
-        {
-            line[all->mlx->px - 1] = 'P';
-            line = ptr->content;
-            line[all->mlx->px - 1] = '0';
-            mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-            printf("you win\n");
-            ft_lstclear(&all->root);
-            exit(0);
-        }
-    }
+	if (line[all->mlx->px - 2] == '0')
+	{
+		line[all->mlx->px - 2] = 'P';
+		line[all->mlx->px - 1] = '0';
+		put_map(all);
+		printf("instruct %d\n", all->map->in++);
+	}
+	else if (line[all->mlx->px - 2] == 'C')
+	{
+		line[all->mlx->px - 2] = 'P';
+		line[all->mlx->px - 1] = '0';
+		all->map->c -= 1;
+		put_map(all);
+		printf("instruct %d\n", all->map->in++);
+	}
+	else if (line[all->mlx->px - 2] == 'E' && !all->map->c)
+	{
+		line[all->mlx->px - 2] = 'P';
+		line[all->mlx->px - 1] = '0';
+		mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+		printf("you win\n");
+		ft_lstclear(&all->root);
+		exit(0);
+	}
 }
 
-int key_hook(int key, t_all *all)
+void	key_2(t_all *all, char *line)
 {
-    if (key == 0)
-        check_x(all, key);
-    if (key == 1)
-        check_y(all, key);
-    if (key == 2)
-        check_x(all, key);
-    if (key == 13)
-        check_y(all, key);
-    if (key == 53)
-    {
-        ft_lstclear(&all->root);
-        mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-        exit(0);
-    }
-    return (0);
+	if (line[all->mlx->px] == '0')
+	{
+		line[all->mlx->px] = 'P';
+		line[all->mlx->px - 1] = '0';
+		put_map(all);
+		printf("instruct %d\n", all->map->in++);
+	}
+	else if (line[all->mlx->px] == 'C')
+	{
+		line[all->mlx->px] = 'P';
+		line[all->mlx->px - 1] = '0';
+		all->map->c -= 1;
+		put_map(all);
+		printf("instruct %d\n", all->map->in++);
+	}
+	else if (line[all->mlx->px] == 'E' && !all->map->c)
+	{
+		line[all->mlx->px] = 'P';
+		line[all->mlx->px - 1] = '0';
+		mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+		printf("you win\n");
+		ft_lstclear(&all->root);
+		exit(0);
+	}
+}
+
+void	check_x(t_all *all, int key)
+{
+	char	*line;
+	t_list	*ptr;
+	int		i;
+
+	i = -1;
+	ptr = all->root;
+	while (ptr && (++i < all->mlx->py - 1))
+		ptr = ptr->next;
+	line = ptr->content;
+	if (key == 0)
+		key_0(all, line);
+	if (key == 2)
+		key_2(all, line);
+}
+
+void	key_13(t_all *all, t_list *ptr)
+{
+	char	*line;
+
+	line = ptr->prev->content;
+	if (line[all->mlx->px - 1] == '0')
+	{
+		key_13_utils(all, ptr, line);
+		put_map(all);
+		printf("instruct %d\n", all->map->in++);
+	}
+	else if (line[all->mlx->px - 1] == 'C')
+	{
+		key_13_utils(all, ptr, line);
+		all->map->c -= 1;
+		put_map(all);
+		printf("instruct %d\n", all->map->in++);
+	}
+	else if (line[all->mlx->px - 1] == 'E' && !all->map->c)
+	{
+		key_13_utils(all, ptr, line);
+		mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+		printf("you win\n");
+		ft_lstclear(&all->root);
+		exit(0);
+	}
+}
+
+void	key_1(t_all *all, t_list *ptr)
+{
+	char	*line;
+
+	line = ptr->next->content;
+	if (line[all->mlx->px - 1] == '0')
+	{
+		key_13_utils(all, ptr, line);
+		put_map(all);
+		printf("instruct %d\n", all->map->in++);
+	}
+	else if (line[all->mlx->px - 1] == 'C')
+	{
+		key_13_utils(all, ptr, line);
+		all->map->c -= 1;
+		put_map(all);
+		printf("instruct %d\n", all->map->in++);
+	}
+	else if (line[all->mlx->px - 1] == 'E' && !all->map->c)
+	{
+		key_13_utils(all, ptr, line);
+		mlx_destroy_window(all->mlx->mlx, all->mlx->win);
+		printf("you win\n");
+		ft_lstclear(&all->root);
+		exit(0);
+	}
 }
