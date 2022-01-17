@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 int	check_child(char c, t_all *all)
 {
@@ -22,6 +22,8 @@ int	check_child(char c, t_all *all)
 	}
 	else if (c == 'E')
 		all->map->e += 1;
+	else if (c == 'R')
+		all->map->r += 1;
 	else if (c == '0' || c == '1' || c == '\n')
 		return (0);
 	else

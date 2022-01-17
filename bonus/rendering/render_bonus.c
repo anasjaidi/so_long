@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	check_xpm(char c, t_all *all)
 {
@@ -25,9 +25,11 @@ void	check_xpm(char c, t_all *all)
 		put_player(all, &x, &y);
 	else if (c == 'E')
 		put_exit(all, &x, &y);
+	else if (c == 'R')
+		put_enemy(all, &x, &y);
 	else if (c == 'C')
 		put_collect(all, &x, &y);
-	all->map->x += 40;
+	all->map->x += 30;
 }
 
 void	put_map(t_all *all)
@@ -47,7 +49,7 @@ void	put_map(t_all *all)
 		line = ptr->content;
 		while (line[++i])
 			check_xpm(line[i], all);
-		all->map->y += 40;
+		all->map->y += 30;
 		all->map->x = 0;
 		ptr = ptr->next;
 		j++;
@@ -67,8 +69,8 @@ int	render(t_all *all)
 
 	all->mlx = &mlx;
 	all->mlx->mlx = mlx_init();
-	all->mlx->win = mlx_new_window(all->mlx->mlx, all->map->w * 40 - 40,
-			all->map->h * 40, "robin");
+	all->mlx->win = mlx_new_window(all->mlx->mlx, all->map->w * 30 - 30,
+			all->map->h * 30, "robin");
 	put_map(all);
 	mlx_hook(all->mlx->win, 2, 0, key_hook, all);
 	mlx_hook(all->mlx->win, 17, 0, dest, all);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	send_line(char *buffer, char **buffer_reminder, int l, char	**rtn)
 {

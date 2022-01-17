@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <mlx.h>
 # include <unistd.h>
@@ -42,6 +42,7 @@ typedef struct s_list {
 typedef struct s_map
 {
 	int	in;
+	int	r;
 	int	w;
 	int	c;
 	int	e;
@@ -56,6 +57,9 @@ typedef struct s_all {
 	t_mlx	*mlx;
 	t_list	*root;
 }	t_all;
+
+void	put_enemy(t_all *all, int *x, int *y);
+int		check_name(char *str);
 void	key_0(t_all *all, char *line);
 void	key_2(t_all *all, char *line);
 void	check_x(t_all *all, int key);
