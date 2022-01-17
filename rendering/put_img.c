@@ -31,8 +31,8 @@ void	put_player(t_all *all, int *x, int *y)
 	all->mlx->img = mlx_xpm_file_to_image(all->mlx->mlx, "xpm/p.xpm", x, y);
 	mlx_put_image_to_window(all->mlx->mlx, all->mlx->win, all->mlx->img,
 		all->map->x, all->map->y);
-	all->mlx->px = all->map->x / 40 + 1;
-	all->mlx->py = all->map->y / 40 + 1;
+	all->mlx->px = all->map->x / 30 + 1;
+	all->mlx->py = all->map->y / 30 + 1;
 }
 
 void	put_exit(t_all *all, int *x, int *y)
