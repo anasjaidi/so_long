@@ -58,6 +58,7 @@ typedef struct s_all {
 	t_list	*root;
 }	t_all;
 
+void	check_enemy(char c, t_all *all);
 void	put_enemy(t_all *all, int *x, int *y);
 int		check_name(char *str);
 void	key_0(t_all *all, char *line);

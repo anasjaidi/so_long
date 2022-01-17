@@ -12,6 +12,16 @@
 
 #include "../so_long_bonus.h"
 
+void	check_enemy(char c, t_all *all)
+{
+	if (c == 'R')
+	{
+		ft_lstclear(&all->root);
+		printf("you lose\n");
+		exit(0);
+	}
+}
+
 void	key_0(t_all *all, char *line)
 {
 	if (line[all->mlx->px - 2] == '0')
@@ -38,6 +48,8 @@ void	key_0(t_all *all, char *line)
 		ft_lstclear(&all->root);
 		exit(0);
 	}
+	else
+		check_enemy(line[all->mlx->px - 2], all);
 }
 
 void	key_2(t_all *all, char *line)
@@ -66,6 +78,8 @@ void	key_2(t_all *all, char *line)
 		ft_lstclear(&all->root);
 		exit(0);
 	}
+	else
+		check_enemy(line[all->mlx->px], all);
 }
 
 void	check_x(t_all *all, int key)
@@ -111,6 +125,8 @@ void	key_13(t_all *all, t_list *ptr)
 		ft_lstclear(&all->root);
 		exit(0);
 	}
+	else
+		check_enemy(line[all->mlx->px - 1], all);
 }
 
 void	key_1(t_all *all, t_list *ptr)
@@ -139,4 +155,6 @@ void	key_1(t_all *all, t_list *ptr)
 		ft_lstclear(&all->root);
 		exit(0);
 	}
+	else
+		check_enemy(line[all->mlx->px - 1], all);
 }
