@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   check_name.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 18:09:55 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/05 18:09:56 by ajaidi           ###   ########.fr       */
+/*   Created: 2022/01/16 02:05:01 by ajaidi            #+#    #+#             */
+/*   Updated: 2022/01/16 02:05:04 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int ac, char **av)
+int	check_name(char *str)
 {
-	t_map	map;
-	t_list	*root;
-	t_all	all;
+	int		i;
+	char	*find;
+	int		j;
 
-	root = NULL;
-	all.map = &map;
-	all.root = root;
-	reset_map(&map);
-	if (ac == 2 && check_name(av[1]))
+	i = 0;
+	find = ".ber";
+	j = -1;
+	while (str[i])
 	{
-		read_line(av[1], &all);
-		render(&all);
+		j = -1;
+		while (str[i] == find[++j])
+		{
+			if (!find[j + 1])
+				return (1);
+			i++;
+		}
+		i++;
 	}
+	printf("map name invalid\n");
+	exit(0);
 }

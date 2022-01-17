@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 	all.map = &map;
 	all.root = root;
 	reset_map(&map);
-	if (ac == 2 && check_name(av[1]))
+	if (ac == 2)
 	{
 		read_line(av[1], &all);
 		render(&all);
