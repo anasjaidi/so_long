@@ -52,12 +52,20 @@ typedef struct s_map
 	int	y;
 }	t_map;
 
+typedef struct s_enemy {
+	int	x[1000];
+	int	y[1000];
+	int	i;
+	int dir;
+}	t_enemy;
+
 typedef struct s_all {
 	t_map	*map;
 	t_mlx	*mlx;
 	t_list	*root;
+	t_enemy	*enemy;
 }	t_all;
-
+int		anime(t_all *all);
 void	check_enemy(char c, t_all *all);
 void	put_enemy(t_all *all, int *x, int *y);
 int		check_name(char *str);

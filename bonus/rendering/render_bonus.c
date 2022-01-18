@@ -43,6 +43,7 @@ void	put_map(t_all *all)
 	all->map->y = 0;
 	all->map->x = 0;
 	j = 1;
+	all->enemy->i = 0;
 	while (ptr)
 	{
 		i = -1;
@@ -74,6 +75,7 @@ int	render(t_all *all)
 	put_map(all);
 	mlx_hook(all->mlx->win, 2, 0, key_hook, all);
 	mlx_hook(all->mlx->win, 17, 0, dest, all);
+	mlx_loop_hook(all->mlx->mlx, anime, all);
 	mlx_loop(all->mlx->mlx);
 	return (0);
 }

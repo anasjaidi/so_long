@@ -2,7 +2,7 @@ NAME = so_long
 B_NAME = so_long_bonus
 BONUS_NAME = so_long_bonus
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 M_SRCS = so_long.c \
 	moving/moving_utils.c \
 	moving/moving.c \

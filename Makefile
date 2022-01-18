@@ -19,6 +19,7 @@ M_SRCS = so_long.c \
 B_SRCS = bonus/so_long_bonus.c \
 	bonus/moving/moving_utils_bonus.c \
 	bonus/moving/moving_bonus.c \
+	bonus/moving/anime.c \
 	bonus/parsing/add_line_bonus.c \
 	bonus/parsing/check_line_bonus.c \
 	bonus/parsing/check_name_bonus.c \

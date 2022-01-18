@@ -17,10 +17,12 @@ int	main(int ac, char **av)
 	t_map	map;
 	t_list	*root;
 	t_all	all;
+	t_enemy	enemy;
 
 	root = NULL;
 	all.map = &map;
 	all.root = root;
+	all.enemy = &enemy;
 	reset_map(&map);
 	if (ac == 2 && check_name(av[1]))
 	{
