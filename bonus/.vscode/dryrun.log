@@ -1,0 +1,21 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/ajaidi/Documents/so_long/bonus'
+ 
+make: *** No rule to make target `so_long.o', needed by `so_long'.
+make: *** No rule to make target `moving/moving_utils.o', needed by `so_long'.
+make: *** No rule to make target `moving/moving.o', needed by `so_long'.
+make: *** No rule to make target `parsing/add_line.o', needed by `so_long'.
+ 
+make: *** No rule to make target `parsing/check_line.o', needed by `so_long'.
+make: *** No rule to make target `parsing/check_name.o', needed by `so_long'.
+make: *** No rule to make target `parsing/get_next_line.o', needed by `so_long'.
+make: *** No rule to make target `parsing/get_next_line_utils.o', needed by `so_long'.
+ 
+make: *** No rule to make target `parsing/parser.o', needed by `so_long'.
+make: *** No rule to make target `rendering/put_img.o', needed by `so_long'.
+make: *** No rule to make target `rendering/render.o', needed by `so_long'.
+ 
+make: *** No rule to make target `so_long_utils.o', needed by `so_long'.
+ 
+make: Leaving directory `/Users/ajaidi/Documents/so_long/bonus'
+ 
