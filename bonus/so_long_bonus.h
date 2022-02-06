@@ -65,6 +65,8 @@ typedef struct s_all {
 	t_list	*root;
 	t_enemy	*enemy;
 }	t_all;
+int		check_width(char *line, t_map *map, int s);
+int		check_rec(t_map *map, t_list **root);
 int		anime(t_all *all);
 void	check_enemy(char c, t_all *all);
 void	put_enemy(t_all *all, int *x, int *y);

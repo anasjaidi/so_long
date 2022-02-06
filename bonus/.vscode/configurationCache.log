@@ -1,1 +1,1 @@
-{"buildTargets":["all","bonus","clean","fclean","make","re","so_long"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":["all","bonus","clean","fclean","re","so_long"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

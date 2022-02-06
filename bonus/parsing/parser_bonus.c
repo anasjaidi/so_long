@@ -44,13 +44,16 @@ int	check_map(t_map *map, t_list **root)
 {
 	int	y;
 	int	x;
-
+	if (check_rec(map, root))
+		return (print_error(2));
 	if (!map->c || !map->e || !map->p)
 		return (print_error(5));
 	x = check_one1((*root)->content);
 	y = check_one2(ft_lstlast(*root)->content);
 	if (x || y)
 		return (3);
+	if (check_width(ft_lstlast(*root)->content, map, 1))
+		return (print_error(2));
 	return (0);
 }
 

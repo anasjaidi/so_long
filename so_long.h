@@ -56,7 +56,8 @@ typedef struct s_all {
 	t_mlx	*mlx;
 	t_list	*root;
 }	t_all;
-
+int		check_width(char *line, t_map *map, int s);
+int		check_rec(t_map *map, t_list **root);
 int		check_name(char *str);
 void	key_0(t_all *all, char *line);
 void	key_2(t_all *all, char *line);

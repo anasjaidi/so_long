@@ -86,5 +86,6 @@ int	print_error(int n)
 		printf("%s\n", MORE_COMP);
 	if (n == 5)
 		printf("%s\n", MISSING);
+	exit (0);
 	return (n);
 }

@@ -114,13 +114,9 @@ void	enemy_move(t_all *all)
 		while (d < all->enemy->i)
 		{
 			line = p->content;
-			while (line[all->enemy->x[d] - 1] == 'R')
+			if (line[all->enemy->x[d] - 1] == 'R')
 			{
-				line = p->content;
 				move1(all,d, line);
-				printf("%s\n",line);
-				ft_sleep(1);
-				p = p->next;
 				d++;
 			}
 			p = p->next;
@@ -135,4 +131,3 @@ int	anime(t_all *all)
 	put_map(all);
 	return (0);
 }
-

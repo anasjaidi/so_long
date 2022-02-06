@@ -12,6 +12,30 @@
 
 #include "../so_long_bonus.h"
 
+int	check_width(char *line, t_map *map, int s)
+{
+	int	len;
+
+	len = ft_strlen(line);
+	if (len + s != map->w)
+		return (2);
+	return (0);
+}
+
+int	check_rec(t_map *map, t_list **root)
+{
+	t_list	*p;
+
+	p = *root;
+	while(p->next)
+	{
+		if (check_width(p->content,map, 0))
+			return (2);
+			p = p->next;
+	}
+	return (0);
+}
+
 int	check_name(char *str)
 {
 	int		i;
