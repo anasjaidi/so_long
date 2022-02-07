@@ -116,7 +116,6 @@ void	enemy_move(t_all *all)
 			p = p->next;
 		line = p->content;
 		move1(all, pp,line);
-		put_map(all);
 		pp++;
 	}
 }
@@ -124,6 +123,5 @@ void	enemy_move(t_all *all)
 int	anime(t_all *all)
 {
 	enemy_move(all);
-	put_map(all);
 	return (0);
 }
