@@ -45,7 +45,7 @@ void	change_dir(t_all *all)
 
 void	move1(t_all *all, int i, char *line)
 {
-	if(all->enemy->dir == 0)
+	if(all->enemy->dir == 1)
 	{
 		if(line[all->enemy->x[i]] == '0')
 		{
@@ -63,16 +63,17 @@ void	move1(t_all *all, int i, char *line)
 				move2(all,i, line);	
 		}
 	}
+	put_map(all);
 }
 
 void	move2(t_all *all, int i ,char * line)
 {
 	if(all->enemy->dir == 0)
 	{
-		if(line[all->enemy->x[i] - 1] == '0')
+		if(line[all->enemy->x[i] - 2] == '0')
 		{
-			line[all->enemy->x[i] - 1] = 'R';
-			line[all->enemy->x[i]] = '0';
+			line[all->enemy->x[i] - 2] = 'R';
+			line[all->enemy->x[i]- 1] = '0';
 			all->enemy->x[i]--;
 		}
 		else if(all->enemy->x[i - 1] == 'P')
@@ -85,6 +86,7 @@ void	move2(t_all *all, int i ,char * line)
 				move1(all,i,line);	
 		}
 	}
+	put_map(all);
 }
 
 void	enemy_move(t_all *all)
@@ -92,11 +94,10 @@ void	enemy_move(t_all *all)
 	// static int i2;
 	// printf("Fuck %d\n",i2);
 	// i2++;
+	static int pp = 0;
 	int i;
-	char *line;
-	t_list	*p;
-	int j = 0;
-	p = all->root;
+	char *line = NULL;
+	t_list	*p = NULL;
 	all->enemy->dir = 1;
 	while (1)
 	{
@@ -104,24 +105,19 @@ void	enemy_move(t_all *all)
 		i = 0;
 		if (!all->enemy->i)
 			return ;
-		if (j >= all->enemy->i)
+		if (pp >= all->enemy->i)
 		{
-				j = 0;
+				pp = 0;
 				break;
 		}
 		int d;
 		d = 0;
-		while (d < all->enemy->i)
-		{
-			line = p->content;
-			if (line[all->enemy->x[d] - 1] == 'R')
-			{
-				move1(all,d, line);
-				d++;
-			}
+		while (++d < all->enemy->y[pp])
 			p = p->next;
-		}
-		j++;
+		line = p->content;
+		move1(all, pp,line);
+		put_map(all);
+		pp++;
 	}
 }
 
