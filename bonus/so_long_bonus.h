@@ -56,7 +56,7 @@ typedef struct s_enemy {
 	int	x[1000];
 	int	y[1000];
 	int	i;
-	int dir;
+	int	dir;
 }	t_enemy;
 
 typedef struct s_all {
@@ -65,8 +65,8 @@ typedef struct s_all {
 	t_list	*root;
 	t_enemy	*enemy;
 }	t_all;
-
-void	move2(t_all *all, int i ,char * line);
+void	move1(t_all *all, int i, char *line);
+void	move2(t_all *all, int i, char *line);
 int		check_width(char *line, t_map *map, int s);
 int		check_rec(t_map *map, t_list **root);
 int		anime(t_all *all);

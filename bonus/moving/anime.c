@@ -12,79 +12,77 @@
 
 #include "../so_long_bonus.h"
 
-#include <sys/time.h>
-
 void	move1(t_all *all, int i, char *line)
 {
-	if(all->enemy->dir == 1)
+	char	c;
+
+	c = line[all->enemy->x[i]];
+	if (all->enemy->dir == 1)
 	{
-		if(line[all->enemy->x[i]] == '0')
+		if (c == '0')
 		{
 			line[all->enemy->x[i]] = 'R';
 			line[all->enemy->x[i] - 1] = '0';
 			all->enemy->x[i]++;
 		}
-		else if(all->enemy->x[i] == 'P')
+		else if (c != '0')
 		{
-			exit(0);
-		}
-		else
-		{
-				all->enemy->dir = 0;
-				move2(all,i, line);	
+			if (c == 'P')
+				exit(0);
+			all->enemy->dir = 0;
 		}
 	}
-	put_map(all);
+	else
+		move2(all, i, line);
 }
 
-void	move2(t_all *all, int i ,char * line)
+void	move2(t_all *all, int i, char *line)
 {
-	if(all->enemy->dir == 0)
+	char	c;
+
+	c = line[all->enemy->x[i] - 2];
+	if (all->enemy->dir == 0)
 	{
-		if(line[all->enemy->x[i] - 2] == '0')
+		if (c == '0')
 		{
 			line[all->enemy->x[i] - 2] = 'R';
-			line[all->enemy->x[i]- 1] = '0';
+			line[all->enemy->x[i] - 1] = '0';
 			all->enemy->x[i]--;
 		}
-		else if(all->enemy->x[i - 1] == 'P')
+		else if (c != '0')
 		{
-			exit(0);
-		}
-		else
-		{
-				all->enemy->dir = 1;
-				move1(all,i,line);	
+			if (c == 'P')
+				exit(0);
+			all->enemy->dir = 1;
 		}
 	}
-	put_map(all);
+	else
+		move1(all, i, line);
 }
 
 void	enemy_move(t_all *all)
 {
-	int pp ;
-	pp = 0;
-	char *line = NULL;
-	t_list	*p = NULL;
-	all->enemy->dir = 1;
+	static int	pp = 0 ;
+	char		*line;
+	t_list		*p;
+	int			d;
+
 	if (!all->enemy->i)
-			return ;
-	while (pp < all->enemy->i)
-	{
-		p = all->root;
-		int d;
-		d = 0;
-		while (++d < all->enemy->y[pp])
-			p = p->next;
-		line = p->content;
-		move1(all, pp,line);
-		pp++;
-	}
+		return ;
+	if (pp == all->enemy->i)
+		pp = 0;
+	p = all->root;
+	d = 0;
+	while (++d < all->enemy->y[pp])
+		p = p->next;
+	line = p->content;
+	move1(all, pp, line);
+	pp++;
 }
 
 int	anime(t_all *all)
 {
 	enemy_move(all);
-	
+	put_map(all);
 	return (0);
 }

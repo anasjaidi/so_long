@@ -51,10 +51,3 @@ void	put_exit(t_all *all, int *x, int *y)
 	mlx_put_image_to_window(all->mlx->mlx, all->mlx->win, all->mlx->img,
 		all->map->x, all->map->y);
 }
-
-void	put_empty(t_all *all, int *x, int *y)
-{
-	all->mlx->img = mlx_xpm_file_to_image(all->mlx->mlx, "xpm/0.xpm", x, y);
-	mlx_put_image_to_window(all->mlx->mlx, all->mlx->win, all->mlx->img,
-		all->map->x, all->map->y);
-}

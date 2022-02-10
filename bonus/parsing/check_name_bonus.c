@@ -27,11 +27,11 @@ int	check_rec(t_map *map, t_list **root)
 	t_list	*p;
 
 	p = *root;
-	while(p->next)
+	while (p->next)
 	{
-		if (check_width(p->content,map, 0))
+		if (check_width(p->content, map, 0))
 			return (2);
-			p = p->next;
+		p = p->next;
 	}
 	return (0);
 }

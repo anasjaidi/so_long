@@ -12,16 +12,6 @@
 
 #include "../so_long_bonus.h"
 
-void	check_enemy(char c, t_all *all)
-{
-	if (c == 'R')
-	{
-		ft_lstclear(&all->root);
-		printf("you lose\n");
-		exit(0);
-	}
-}
-
 void	key_0(t_all *all, char *line)
 {
 	if (line[all->mlx->px - 2] == '0')

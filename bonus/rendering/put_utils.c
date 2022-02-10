@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   put_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 21:33:18 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/11 11:54:41 by ajaidi           ###   ########.fr       */
+/*   Created: 2022/02/10 18:42:38 by ajaidi            #+#    #+#             */
+/*   Updated: 2022/02/10 18:42:40 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../so_long_bonus.h"
 
-void	reset_map(t_map *map)
+void	put_empty(t_all *all, int *x, int *y)
 {
-	map->c = 0;
-	map->e = 0;
-	map->h = 0;
-	map->w = 0;
-	map->p = 0;
-	map->x = 0;
-	map->y = 0;
-	map->in = 1;
+	all->mlx->img = mlx_xpm_file_to_image(all->mlx->mlx, "xpm/0.xpm", x, y);
+	mlx_put_image_to_window(all->mlx->mlx, all->mlx->win, all->mlx->img,
+		all->map->x, all->map->y);
 }

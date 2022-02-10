@@ -19,6 +19,7 @@ int	main(int ac, char **av)
 	t_all	all;
 	t_enemy	enemy;
 
+	enemy.dir = 1;
 	root = NULL;
 	all.map = &map;
 	all.root = root;

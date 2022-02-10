@@ -44,6 +44,7 @@ int	check_map(t_map *map, t_list **root)
 {
 	int	y;
 	int	x;
+
 	if (check_rec(map, root))
 		return (print_error(2));
 	if (!map->c || !map->e || !map->p)

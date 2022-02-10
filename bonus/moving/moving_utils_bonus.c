@@ -52,3 +52,13 @@ int	key_hook(int key, t_all *all)
 	}
 	return (0);
 }
+
+void	check_enemy(char c, t_all *all)
+{
+	if (c == 'R')
+	{
+		ft_lstclear(&all->root);
+		printf("you lose\n");
+		exit(0);
+	}
+}
