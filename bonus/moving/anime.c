@@ -31,6 +31,7 @@ void	move1(t_all *all, int i, char *line)
 				exit(0);
 			all->enemy->dir = 0;
 		}
+		put_map(all);
 	}
 	else
 		move2(all, i, line);
@@ -55,6 +56,7 @@ void	move2(t_all *all, int i, char *line)
 				exit(0);
 			all->enemy->dir = 1;
 		}
+		put_map(all);
 	}
 	else
 		move1(all, i, line);
@@ -70,7 +72,10 @@ void	enemy_move(t_all *all)
 	if (!all->enemy->i)
 		return ;
 	if (pp == all->enemy->i)
+	{
 		pp = 0;
+		//usleep(100000);
+	}
 	p = all->root;
 	d = 0;
 	while (++d < all->enemy->y[pp])
@@ -83,6 +88,5 @@ void	enemy_move(t_all *all)
 int	anime(t_all *all)
 {
 	enemy_move(all);
-	put_map(all);
 	return (0);
 }

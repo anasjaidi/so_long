@@ -87,7 +87,7 @@ void	put_exit(t_all *all, int *x, int *y);
 void	put_wall(t_all *all, int *x, int *y);
 void	put_collect(t_all *all, int *x, int *y);
 int		key_hook(int key, t_all *all);
-void	put_map(t_all *all);
+int		put_map(t_all *all);
 int		check_one(char *line1, char *line2);
 int		move(t_all *all);
 void	reset_map(t_map *map);

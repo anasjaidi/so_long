@@ -32,29 +32,33 @@ void	check_xpm(char c, t_all *all)
 	all->map->x += 30;
 }
 
-void	put_map(t_all *all)
+void	check_line2(t_all *all, char *line)
+{
+	int		i;
+
+	i = -1;
+	while (line[++i])
+		check_xpm(line[i], all);
+	all->map->y += 30;
+	all->map->x = 0;
+}
+
+int	put_map(t_all *all)
 {
 	t_list	*ptr;
 	char	*line;
-	int		i;
-	int		j;
 
 	ptr = all->root;
 	all->map->y = 0;
 	all->map->x = 0;
-	j = 1;
 	all->enemy->i = 0;
-	while (ptr)
+	while (ptr->next)
 	{
-		i = -1;
 		line = ptr->content;
-		while (line[++i])
-			check_xpm(line[i], all);
-		all->map->y += 30;
-		all->map->x = 0;
+		check_line2(all, line);
 		ptr = ptr->next;
-		j++;
 	}
+	return (0);
 }
 
 int	dest(t_all *all)
