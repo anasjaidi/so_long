@@ -1,15 +1,13 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/ajaidi/Documents/so_long'
 cc -Wall -Wextra -Werror -c so_long.c -o so_long.o
 cc -Wall -Wextra -Werror -c moving/moving_utils.c -o moving/moving_utils.o
 cc -Wall -Wextra -Werror -c moving/moving.c -o moving/moving.o
 cc -Wall -Wextra -Werror -c parsing/add_line.c -o parsing/add_line.o
 cc -Wall -Wextra -Werror -c parsing/check_line.c -o parsing/check_line.o
- 
 cc -Wall -Wextra -Werror -c parsing/check_name.c -o parsing/check_name.o
 cc -Wall -Wextra -Werror -c parsing/get_next_line.c -o parsing/get_next_line.o
 cc -Wall -Wextra -Werror -c parsing/get_next_line_utils.c -o parsing/get_next_line_utils.o
- 
 cc -Wall -Wextra -Werror -c parsing/parser.c -o parsing/parser.o
 cc -Wall -Wextra -Werror -c rendering/put_img.c -o rendering/put_img.o
 cc -Wall -Wextra -Werror -c rendering/render.c -o rendering/render.o

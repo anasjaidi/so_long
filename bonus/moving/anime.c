@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   anime.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ajaidi <ajaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:07:00 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/18 15:07:06 by ajaidi           ###   ########.fr       */
+/*   Updated: 2022/02/24 20:58:22 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	move1(t_all *all, int i, char *line)
 				exit(0);
 			all->enemy->dir = 0;
 		}
-		put_map(all);
 	}
 	else
 		move2(all, i, line);
@@ -56,7 +55,6 @@ void	move2(t_all *all, int i, char *line)
 				exit(0);
 			all->enemy->dir = 1;
 		}
-		put_map(all);
 	}
 	else
 		move1(all, i, line);
@@ -72,10 +70,7 @@ void	enemy_move(t_all *all)
 	if (!all->enemy->i)
 		return ;
 	if (pp == all->enemy->i)
-	{
 		pp = 0;
-		//usleep(100000);
-	}
 	p = all->root;
 	d = 0;
 	while (++d < all->enemy->y[pp])

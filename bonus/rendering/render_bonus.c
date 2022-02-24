@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ajaidi <ajaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 12:00:15 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/11 17:00:56 by ajaidi           ###   ########.fr       */
+/*   Updated: 2022/02/24 20:57:27 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	put_map(t_all *all)
 	all->map->y = 0;
 	all->map->x = 0;
 	all->enemy->i = 0;
-	while (ptr->next)
+	while (ptr)
 	{
 		line = ptr->content;
 		check_line2(all, line);
@@ -79,7 +79,6 @@ int	render(t_all *all)
 	put_map(all);
 	mlx_hook(all->mlx->win, 2, 0, key_hook, all);
 	mlx_hook(all->mlx->win, 17, 0, dest, all);
-	mlx_loop_hook(all->mlx->mlx, anime, all);
 	mlx_loop(all->mlx->mlx);
 	return (0);
 }

@@ -27,8 +27,10 @@ B_SRCS = bonus/so_long_bonus.c \
 	bonus/parsing/get_next_line_utils_bonus.c \
 	bonus/parsing/parser_bonus.c \
 	bonus/rendering/put_img_bonus.c \
+	bonus/rendering/put_utils.c \
 	bonus/rendering/render_bonus.c \
-	bonus/so_long_utils_bonus.c
+	bonus/so_long_utils_bonus.c \
+	bonus/moving/utils.c
 
 M_OBJ = $(M_SRCS:.c=.o)
 

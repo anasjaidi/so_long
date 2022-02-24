@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ajaidi <ajaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 13:32:36 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/11 11:53:46 by ajaidi           ###   ########.fr       */
+/*   Updated: 2022/02/24 23:48:51 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ typedef struct s_all {
 	t_list	*root;
 	t_enemy	*enemy;
 }	t_all;
+void	f1(t_all *all, char *line, t_list *ptr);
+void	f2(t_all *all, char *line, int x, int y);
+void	check_line2(t_all *all, char *line);
+void	put_empty(t_all *all, int *x, int *y);
 void	move1(t_all *all, int i, char *line);
 void	move2(t_all *all, int i, char *line);
 int		check_width(char *line, t_map *map, int s);

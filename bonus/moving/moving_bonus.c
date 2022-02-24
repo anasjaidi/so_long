@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moving.c                                           :+:      :+:    :+:   */
+/*   moving_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ajaidi <ajaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 07:25:06 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/07 07:25:06 by ajaidi           ###   ########.fr       */
+/*   Updated: 2022/02/24 23:46:04 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	key_0(t_all *all, char *line)
 	{
 		line[all->mlx->px - 2] = 'P';
 		line[all->mlx->px - 1] = '0';
+		anime(all);
 		put_map(all);
 		printf("instruct %d\n", all->map->in++);
 	}
@@ -26,18 +27,12 @@ void	key_0(t_all *all, char *line)
 		line[all->mlx->px - 2] = 'P';
 		line[all->mlx->px - 1] = '0';
 		all->map->c -= 1;
+		anime(all);
 		put_map(all);
 		printf("instruct %d\n", all->map->in++);
 	}
 	else if (line[all->mlx->px - 2] == 'E' && !all->map->c)
-	{
-		line[all->mlx->px - 2] = 'P';
-		line[all->mlx->px - 1] = '0';
-		mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-		printf("you win\n");
-		ft_lstclear(&all->root);
-		exit(0);
-	}
+		f2(all, line, 2, 1);
 	else
 		check_enemy(line[all->mlx->px - 2], all);
 }
@@ -48,6 +43,7 @@ void	key_2(t_all *all, char *line)
 	{
 		line[all->mlx->px] = 'P';
 		line[all->mlx->px - 1] = '0';
+		anime(all);
 		put_map(all);
 		printf("instruct %d\n", all->map->in++);
 	}
@@ -56,18 +52,12 @@ void	key_2(t_all *all, char *line)
 		line[all->mlx->px] = 'P';
 		line[all->mlx->px - 1] = '0';
 		all->map->c -= 1;
+		anime(all);
 		put_map(all);
 		printf("instruct %d\n", all->map->in++);
 	}
 	else if (line[all->mlx->px] == 'E' && !all->map->c)
-	{
-		line[all->mlx->px] = 'P';
-		line[all->mlx->px - 1] = '0';
-		mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-		printf("you win\n");
-		ft_lstclear(&all->root);
-		exit(0);
-	}
+		f2(all, line, 0, 1);
 	else
 		check_enemy(line[all->mlx->px], all);
 }
@@ -97,6 +87,7 @@ void	key_13(t_all *all, t_list *ptr)
 	if (line[all->mlx->px - 1] == '0')
 	{
 		key_13_utils(all, ptr, line);
+		anime(all);
 		put_map(all);
 		printf("instruct %d\n", all->map->in++);
 	}
@@ -104,17 +95,12 @@ void	key_13(t_all *all, t_list *ptr)
 	{
 		key_13_utils(all, ptr, line);
 		all->map->c -= 1;
+		anime(all);
 		put_map(all);
 		printf("instruct %d\n", all->map->in++);
 	}
 	else if (line[all->mlx->px - 1] == 'E' && !all->map->c)
-	{
-		key_13_utils(all, ptr, line);
-		mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-		printf("you win\n");
-		ft_lstclear(&all->root);
-		exit(0);
-	}
+		f1(all, line, ptr);
 	else
 		check_enemy(line[all->mlx->px - 1], all);
 }
@@ -127,6 +113,7 @@ void	key_1(t_all *all, t_list *ptr)
 	if (line[all->mlx->px - 1] == '0')
 	{
 		key_13_utils(all, ptr, line);
+		anime(all);
 		put_map(all);
 		printf("instruct %d\n", all->map->in++);
 	}
@@ -134,17 +121,12 @@ void	key_1(t_all *all, t_list *ptr)
 	{
 		key_13_utils(all, ptr, line);
 		all->map->c -= 1;
+		anime(all);
 		put_map(all);
 		printf("instruct %d\n", all->map->in++);
 	}
 	else if (line[all->mlx->px - 1] == 'E' && !all->map->c)
-	{
-		key_13_utils(all, ptr, line);
-		mlx_destroy_window(all->mlx->mlx, all->mlx->win);
-		printf("you win\n");
-		ft_lstclear(&all->root);
-		exit(0);
-	}
+		f1(all, line, ptr);
 	else
 		check_enemy(line[all->mlx->px - 1], all);
 }
