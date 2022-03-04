@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ajaidi <ajaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:56:18 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/11 11:58:35 by ajaidi           ###   ########.fr       */
+/*   Updated: 2022/03/04 16:08:07 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	check_map(t_map *map, t_list **root)
 	int	y;
 	int	x;
 
-	if (!map->c || !map->e || !map->p)
+	if (!map->c || !map->e || map->p != 1)
 		return (print_error(5));
 	if (check_rec(map, root))
 		return (print_error(2));

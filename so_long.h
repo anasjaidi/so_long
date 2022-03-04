@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajaidi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ajaidi <ajaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 13:32:36 by ajaidi            #+#    #+#             */
-/*   Updated: 2022/01/11 11:53:46 by ajaidi           ###   ########.fr       */
+/*   Updated: 2022/03/04 16:06:44 by ajaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define EMPTY_FILE "Error the map is empty" 
 # define NOT_RECTANGULAR "Error the map is not rectangular" 
 # define NOT_ONE "Error the map is not surrounded by wall" 
-# define MORE_COMP "ther is more tha 01ECP in map"
+# define MORE_COMP "ther is more than 01ECP in map"
 # define MISSING "something missing in map"
 
 typedef struct s_mlx {
